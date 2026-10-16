@@ -1478,7 +1478,7 @@ nd turn your ideas into reality.</h3>				</div>
         <footer id="colophon" class="site-footer" role="contentinfo">
 									<div class="site-info">
 							
-<p>© 2025 Aurevo Interiors</p>
+<p>© 2025 Aurevo Interiors<br>Developed and maintained by <a href="https://codwrks.com" target="_blank" rel="noopener noreferrer">codwrks.com</a></p>
 						</div> <!-- .site-info -->
 							</footer> <!-- #colophon .site-footer -->
 	</div>
@@ -1632,17 +1632,15 @@ wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 /* ]]> */
 </script>
 <script type="text/javascript" src="/wp-content/plugins/qi-addons-for-elementor/inc/plugins/elementor/assets/js/elementor.js?ver=6.8.3" id="qi-addons-for-elementor-elementor-js"></script>
+<script type="text/javascript" src="/hero-slides.js"></script>
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function () {
   var hero = document.querySelector(".elementor-element-ae80b98");
   if (!hero) return;
 
-  var imageUrls = [
-    "https://thndtzrhrcuyxxuozcqv.supabase.co/storage/v1/object/public/blog-images/aurovo/Minimalist-Beige-Chair.jpeg",
-    "https://thndtzrhrcuyxxuozcqv.supabase.co/storage/v1/object/public/blog-images/aurovo/Minimalist-Chair-Scene.jpeg",
-    "https://thndtzrhrcuyxxuozcqv.supabase.co/storage/v1/object/public/blog-images/aurovo/Modern-Interior-with-Plush-White-Chair.jpeg",
-    "https://thndtzrhrcuyxxuozcqv.supabase.co/storage/v1/object/public/blog-images/aurovo/stylish-living-room-interior-with-design-furniture-elegant-accessories-bamboo-ceiling-3d-rende-1.jpg"
-  ];
+  var imageUrls = (window.HERO_SLIDES || []).map(function (url) {
+    return String(url || "").trim();
+  }).filter(Boolean);
 
   if (!imageUrls.length) return;
 
