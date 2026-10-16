@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "framework": null,
+  "rewrites": [
+    { "source": "/about-us", "destination": "/about-us/index.html" },
+    { "source": "/services", "destination": "/services/index.html" },
+    { "source": "/portfolio", "destination": "/portfolio/index.html" },
+    { "source": "/blog", "destination": "/blog/index.html" },
+    { "source": "/contact", "destination": "/contact/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    }
+  ]
+}
