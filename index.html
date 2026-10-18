@@ -424,6 +424,60 @@ body { background: #fffefc; }
 			</div> <!-- .header-wrap -->
         </header> <!-- #masthead .site-header -->
 		<div data-elementor-type="wp-page" data-elementor-id="14997" class="elementor elementor-14997">
+		<style>
+			/* ── Reduce typeout text section spacing on desktop ── */
+			@media (min-width: 1025px) {
+				.elementor-element-f5e185f {
+					--padding-top: 3% !important;
+					--padding-bottom: 3% !important;
+					padding-top: 3% !important;
+					padding-bottom: 3% !important;
+				}
+				.elementor-element-d4903c7 > .elementor-widget-container {
+					margin-top: 0 !important;
+					margin-bottom: 0 !important;
+				}
+				.elementor-element-d4903c7 .qodef-m-text {
+					margin-top: 0 !important;
+					margin-bottom: 0 !important;
+				}
+			}
+			/* ── Homepage blog featured images ── */
+			.elementor-element-e9897f6.elementor-invisible,
+			.elementor-element-72dc6e6 .qodef-blog-item {
+				visibility: visible !important;
+				opacity: 1 !important;
+				animation: none !important;
+			}
+			.elementor-element-72dc6e6 .qodef-e-media-image,
+			.elementor-element-72dc6e6 .qodef-e-media-image a,
+			.elementor-element-72dc6e6 .qodef-e-media-image img {
+				border-radius: 0 !important;
+			}
+			.elementor-element-72dc6e6 .qodef-e-media-image img {
+				width: 100%;
+				height: auto;
+				display: block;
+				object-fit: cover;
+				aspect-ratio: 550 / 361;
+			}
+			@media (min-width: 1025px) {
+				.elementor-element-72dc6e6 .qodef-addons-blog-list.qodef-qi-grid > .qodef-grid-inner {
+					display: grid !important;
+					grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+					gap: 30px !important;
+					align-items: start !important;
+				}
+				.elementor-element-72dc6e6 .qodef-grid-inner > .qodef-e > * {
+					margin-top: 0 !important;
+				}
+				.elementor-element-72dc6e6 .qodef-e-inner {
+					display: flex;
+					flex-direction: column;
+					height: 100%;
+				}
+			}
+		</style>
 				<div class="elementor-element elementor-element-0e19e94 animated-fast e-flex e-con-boxed elementor-invisible e-con e-parent" data-id="0e19e94" data-element_type="container" data-e-type="container" data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;}">
 					<div class="e-con-inner">
 		<div class="elementor-element elementor-element-cc74995 e-con-full e-flex e-con e-child" data-id="cc74995" data-element_type="container" data-e-type="container">
@@ -1347,10 +1401,17 @@ body { background: #fffefc; }
 		<div class="elementor-element elementor-element-6fdd6dd e-con-full e-flex e-con e-child" data-id="6fdd6dd" data-element_type="container" data-e-type="container">
 				<div class="elementor-element elementor-element-72dc6e6 elementor-widget elementor-widget-qi_addons_for_elementor_blog_list" data-id="72dc6e6" data-element_type="widget" data-e-type="widget" data-widget_type="qi_addons_for_elementor_blog_list.default">
 				<div class="elementor-widget-container">
-					<div class="qodef-shortcode qodef-m qodef-addons-blog-list qodef-info-no-icons qodef-title--hover-underline qodef-image--hover-zoom qodef-qi-grid qodef-layout--qi-columns qodef-col-num--4 qodef-item-layout--minimal qodef-responsive--custom qodef-col-num--1680--3 qodef-col-num--1440--3 qodef-col-num--1366--3 qodef-col-num--1024--2 qodef-col-num--768--2 qodef-col-num--680--2 qodef-col-num--480--1" >
+					<div class="qodef-shortcode qodef-m qodef-addons-blog-list qodef-info-no-icons qodef-title--hover-underline qodef-image--hover-zoom qodef-qi-grid qodef-layout--qi-columns qodef-col-num--3 qodef-item-layout--standard qodef-responsive--custom qodef-col-num--1680--3 qodef-col-num--1440--3 qodef-col-num--1366--3 qodef-col-num--1024--2 qodef-col-num--768--2 qodef-col-num--680--2 qodef-col-num--480--1" >
 	<div class="qodef-grid-inner">
 		<article class="qodef-e qodef-blog-item qodef-grid-item qodef-item--full post-5493 post type-post status-publish format-standard has-post-thumbnail hentry category-insights is-cat-link-borders-light is-cat-link-rounded">
 	<div class="qodef-e-inner">
+					<div class="qodef-e-media">
+				<div class="qodef-e-media-image">
+					<a itemprop="url" href="/best-flooring-options-for-modern-homes/">
+						<img width="550" height="361" src="/wp-content/uploads/2025/05/Group-18.png" class="attachment-full size-full wp-post-image" alt="Best Flooring Options for Modern Homes and Offices" decoding="async" srcset="/wp-content/uploads/2025/05/Group-18.png 550w, /wp-content/uploads/2025/05/Group-18-300x197.png 300w" sizes="(max-width: 550px) 100vw, 550px" />
+					</a>
+				</div>
+			</div>
 		<div class="qodef-e-content">
 							<div class="qodef-e-info qodef-info--top">
 					<div class="qodef-e-info-item qodef-e-info-category">
@@ -1373,6 +1434,13 @@ body { background: #fffefc; }
 </article>
 <article class="qodef-e qodef-blog-item qodef-grid-item qodef-item--full post-5654 post type-post status-publish format-standard has-post-thumbnail hentry category-news is-cat-link-borders-light is-cat-link-rounded">
 	<div class="qodef-e-inner">
+					<div class="qodef-e-media">
+				<div class="qodef-e-media-image">
+					<a itemprop="url" href="/office-interior-design-tips/">
+						<img width="550" height="361" src="/wp-content/uploads/2025/05/Group-16.png" class="attachment-full size-full wp-post-image" alt="Office Interior Design Tips to Boost Productivity" decoding="async" srcset="/wp-content/uploads/2025/05/Group-16.png 550w, /wp-content/uploads/2025/05/Group-16-300x197.png 300w" sizes="(max-width: 550px) 100vw, 550px" />
+					</a>
+				</div>
+			</div>
 		<div class="qodef-e-content">
 							<div class="qodef-e-info qodef-info--top">
 					<div class="qodef-e-info-item qodef-e-info-category">
@@ -1395,6 +1463,13 @@ body { background: #fffefc; }
 </article>
 <article class="qodef-e qodef-blog-item qodef-grid-item qodef-item--full post-5656 post type-post status-publish format-standard has-post-thumbnail hentry category-news is-cat-link-borders-light is-cat-link-rounded">
 	<div class="qodef-e-inner">
+					<div class="qodef-e-media">
+				<div class="qodef-e-media-image">
+					<a itemprop="url" href="/how-to-choose-the-perfect-color-palette/">
+						<img width="550" height="361" src="/wp-content/uploads/2025/05/Group-15.png" class="attachment-full size-full wp-post-image" alt="How to Choose the Perfect Color Palette for Home Interiors" decoding="async" srcset="/wp-content/uploads/2025/05/Group-15.png 550w, /wp-content/uploads/2025/05/Group-15-300x197.png 300w" sizes="(max-width: 550px) 100vw, 550px" />
+					</a>
+				</div>
+			</div>
 		<div class="qodef-e-content">
 							<div class="qodef-e-info qodef-info--top">
 					<div class="qodef-e-info-item qodef-e-info-category">

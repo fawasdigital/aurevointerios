@@ -416,122 +416,148 @@ body { background: #fffefc; }
 			</div> <!-- .header-wrap -->
         </header> <!-- #masthead .site-header -->
 		<div data-elementor-type="wp-page" data-elementor-id="17804" class="elementor elementor-17804">
-						<section class="elementor-section elementor-top-section elementor-element elementor-element-3a989010 elementor-section-full_width elementor-section-stretched elementor-section-height-min-height elementor-section-items-top elementor-section-height-default" data-id="3a989010" data-element_type="section" data-e-type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
-						<div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-4473dc37" data-id="4473dc37" data-element_type="column" data-e-type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-1c8867c elementor-widget__width-initial elementor-invisible elementor-widget elementor-widget-prime-slider-general" data-id="1c8867c" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;}" data-widget_type="prime-slider-general.default">
-							<div class="bdt-prime-slider">
-			<div class="bdt-prime-slider-skin-general">
-				<div class="bdt-position-relative bdt-visible-toggle" bdt-slideshow="{&quot;animation&quot;:&quot;fade&quot;,&quot;ratio&quot;:&quot;16:5&quot;,&quot;min-height&quot;:&quot;345&quot;,&quot;autoplay&quot;:true,&quot;autoplay-interval&quot;:7000,&quot;pause-on-hover&quot;:false,&quot;draggable&quot;:true,&quot;velocity&quot;:1,&quot;finite&quot;:false}" data-settings="{&quot;id&quot;:&quot;#bdt-1c8867c&quot;,&quot;animation_status&quot;:&quot;no&quot;}" id="bdt-1c8867c">
-					<ul class="bdt-slideshow-items">
-						
-			<li
-				class="bdt-slideshow-item bdt-flex bdt-flex-middle bdt-flex-center elementor-repeater-item-2e35a47">
-									<div
-						class="bdt-position-cover bdt-animation-kenburns bdt-animation-reverse bdt-transform-origin-center-left">
-					
-											
-		<div class="bdt-ps-slide-img lazyload" style="background-image:inherit" data-bg-image="url(&#039;/wp-content/uploads/2025/10/Frame-4-1.png&#039;)"></div>
-
-							
-										</div>
-				
-				
-						<div class="bdt-prime-slider-wrapper">
-			<div class="bdt-prime-slider-content">
-				<div class="bdt-prime-slider-desc">
-
-					
-					
-					
-					<div data-bdt-slideshow-parallax="x: 150,0,-30; opacity: 1,1,0">
-						<div class="bdt-btn-wrapper">
-													</div>
+		<style>
+			/* ── Breadcrumb / Hero background override ── */
+			.elementor-element-services-bc {
+				background-image: url('/wp-content/uploads/custom/services-breadcrumb.png') !important;
+				background-size: cover !important;
+				background-position: center center !important;
+				background-repeat: no-repeat !important;
+				position: relative !important;
+				min-height: 380px !important;
+				display: flex !important;
+				align-items: stretch !important;
+				padding: 10% 5% 8% 0% !important;
+			}
+			.elementor-element-services-bc::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background: rgba(0, 0, 0, 0.35);
+				z-index: 0;
+				pointer-events: none;
+			}
+			.elementor-element-services-bc > * {
+				position: relative;
+				z-index: 1;
+			}
+			.elementor-element-services-bc-inner {
+				display: flex !important;
+				align-items: center !important;
+				justify-content: center !important;
+				width: 100% !important;
+				padding-left: 7% !important;
+			}
+			.elementor-element-services-bc-title-wrap {
+				display: flex !important;
+				align-items: center !important;
+				justify-content: center !important;
+				width: 56% !important;
+				margin: 0 auto !important;
+			}
+			.elementor-element-services-bc .qodef-qi-animated-text {
+				text-align: center !important;
+			}
+			.elementor-element-services-bc .qodef-m-title,
+			.elementor-element-services-bc .qodef-e-word-holder {
+				color: #ffffff !important;
+				line-height: 1.1em !important;
+				letter-spacing: -0.04em !important;
+			}
+			.elementor-element-services-bc .elementor-invisible {
+				visibility: visible !important;
+				opacity: 1 !important;
+				animation: none !important;
+			}
+			@media (max-width: 1024px) {
+				.elementor-element-services-bc {
+					min-height: 300px !important;
+					justify-content: center !important;
+					padding: 0 !important;
+				}
+				.elementor-element-services-bc-inner {
+					padding-left: 0 !important;
+				}
+				.elementor-element-services-bc-title-wrap {
+					width: 60% !important;
+				}
+				.elementor-element-services-bc .qodef-m-title {
+					font-size: 60px !important;
+				}
+			}
+			@media (max-width: 767px) {
+				.elementor-element-services-bc {
+					min-height: 100px !important;
+					padding: 5% !important;
+				}
+				.elementor-element-services-bc-inner {
+					padding-top: 20% !important;
+				}
+				.elementor-element-services-bc-title-wrap {
+					width: 80% !important;
+				}
+				.elementor-element-services-bc .qodef-m-title {
+					font-size: 33px !important;
+				}
+			}
+			/* ── Tailored Interior Solutions image panel ── */
+			.elementor-element-92da80c {
+				background-image: url('/wp-content/uploads/custom/services-intro-image.png') !important;
+				background-size: cover !important;
+				background-position: center center !important;
+				background-repeat: no-repeat !important;
+				min-height: 277px !important;
+				border-radius: 8px !important;
+				overflow: hidden !important;
+			}
+			.elementor-element-92da80c .services-intro-img {
+				display: none;
+			}
+			/* ── Footer CTA background image (services page only) ── */
+			.elementor-element-cade999 {
+				background-image: url('/wp-content/uploads/custom/services-footer-bg.png') !important;
+				background-size: cover !important;
+				background-position: center center !important;
+				background-repeat: no-repeat !important;
+				position: relative !important;
+			}
+			.elementor-element-cade999 > .elementor-background-overlay {
+				background-color: rgba(7, 23, 31, 0.45) !important;
+				opacity: 1 !important;
+			}
+			.elementor-element-cade999 > .elementor-container {
+				position: relative;
+				z-index: 1;
+			}
+			.elementor-element-cade999 .elementor-invisible {
+				visibility: visible !important;
+				opacity: 1 !important;
+				animation: none !important;
+			}
+			@media (min-width: 1025px) {
+				.elementor-element-cade999 {
+					background-attachment: fixed !important;
+				}
+			}
+		</style>
+				<div class="elementor-element elementor-element-services-bc e-flex e-con-boxed e-con e-parent" data-id="services-bc" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner elementor-element-services-bc-inner">
+		<div class="elementor-element elementor-element-services-bc-inner-wrap e-flex e-con-boxed e-con e-child" data-id="services-bc-inner" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-services-bc-title-wrap e-con-full e-flex e-con e-child" data-id="services-bc-title-wrap" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-services-bc-title elementor-widget elementor-widget-qi_addons_for_elementor_animated_text" data-id="services-bc-title" data-element_type="widget" data-e-type="widget" data-widget_type="qi_addons_for_elementor_animated_text.default">
+				<div class="elementor-widget-container">
+					<div class="qodef-shortcode qodef-m qodef-qi-animated-text qodef--animated-by-letter qodef--alignment-center qodef-qi--has-appear qodef--appear-fade" >
+		<h1 class="qodef-m-title">
+		<span class="qodef-e-word-holder">Services</span>	</h1>
+</div>
+				</div>
+				</div>
+				</div>
 					</div>
 				</div>
-
-				
-			</div>
-		</div>
-					</li>
-
-		
-			<li
-				class="bdt-slideshow-item bdt-flex bdt-flex-middle bdt-flex-center elementor-repeater-item-36bf7a5">
-									<div
-						class="bdt-position-cover bdt-animation-kenburns bdt-animation-reverse bdt-transform-origin-center-left">
-					
-											
-		<div class="bdt-ps-slide-img lazyload" style="background-image:inherit" data-bg-image="url(&#039;/wp-content/uploads/2025/10/Frame-6.png&#039;)"></div>
-
-							
-										</div>
-				
-				
-						<div class="bdt-prime-slider-wrapper">
-			<div class="bdt-prime-slider-content bdt-prime-slider-content">
-				<div class="bdt-prime-slider-desc">
-
-					
-					
-					
-					<div data-bdt-slideshow-parallax="x: 150,0,-30; opacity: 1,1,0">
-						<div class="bdt-btn-wrapper">
-													</div>
 					</div>
 				</div>
-
-				
-			</div>
-		</div>
-					</li>
-
-		
-			<li
-				class="bdt-slideshow-item bdt-flex bdt-flex-middle bdt-flex-center elementor-repeater-item-ecf576a">
-									<div
-						class="bdt-position-cover bdt-animation-kenburns bdt-animation-reverse bdt-transform-origin-center-left">
-					
-											
-		<div class="bdt-ps-slide-img lazyload" style="background-image:inherit" data-bg-image="url(&#039;/wp-content/uploads/2025/10/Frame-8.png&#039;)"></div>
-
-							
-										</div>
-				
-				
-						<div class="bdt-prime-slider-wrapper">
-			<div class="bdt-prime-slider-content bdt-prime-slider-content bdt-prime-slider-content">
-				<div class="bdt-prime-slider-desc">
-
-					
-					
-					
-					<div data-bdt-slideshow-parallax="x: 150,0,-30; opacity: 1,1,0">
-						<div class="bdt-btn-wrapper">
-													</div>
-					</div>
-				</div>
-
-				
-			</div>
-		</div>
-					</li>
-
-		
-					</ul>
-					
-		
-							
-		
-						</div>
-											</div>
-		</div>
-						</div>
-					</div>
-		</div>
-					</div>
-		</section>
 		<div class="elementor-element elementor-element-37ac375 e-flex e-con-boxed e-con e-parent" data-id="37ac375" data-element_type="container" data-e-type="container">
 					<div class="e-con-inner">
 		<div class="elementor-element elementor-element-3fefeaf e-con-full e-flex e-con e-child" data-id="3fefeaf" data-element_type="container" data-e-type="container">
@@ -558,7 +584,8 @@ body { background: #fffefc; }
 				</div>
 		<div class="elementor-element elementor-element-6076ec3 e-con-full e-flex e-con e-child" data-id="6076ec3" data-element_type="container" data-e-type="container">
 		<div class="elementor-element elementor-element-930ca9d e-con-full e-flex e-con e-child" data-id="930ca9d" data-element_type="container" data-e-type="container">
-		<div class="elementor-element elementor-element-92da80c e-con-full e-flex e-con e-child" data-id="92da80c" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;video&quot;}">
+		<div class="elementor-element elementor-element-92da80c e-con-full e-flex e-con e-child" data-id="92da80c" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<img class="services-intro-img" src="/wp-content/uploads/custom/services-intro-image.png" alt="Tailored Interior Solutions - Modern Living Room Design" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:8px;" />
 				</div>
 				<div class="elementor-element elementor-element-1561f22 elementor-widget elementor-widget-heading" data-id="1561f22" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
 					<h2 class="elementor-heading-title elementor-size-default">From planning to completion, Aurevo Interiors delivers spaces made with the best materials, expert hands, and attention to detail.</h2>				</div>

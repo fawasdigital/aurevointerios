@@ -415,9 +415,131 @@ body { background: #fffefc; }
 			</div> <!-- .header-wrap -->
         </header> <!-- #masthead .site-header -->
 		<div data-elementor-type="wp-page" data-elementor-id="17820" class="elementor elementor-17820">
-				<div class="elementor-element elementor-element-1e0fe808 e-flex e-con-boxed e-con e-parent" data-id="1e0fe808" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<style>
+			/* ── Breadcrumb / Hero background override ── */
+			.elementor-element-contact-bc {
+				background-image: url('/wp-content/uploads/custom/contact-breadcrumb.png') !important;
+				background-size: cover !important;
+				background-position: center center !important;
+				background-repeat: no-repeat !important;
+				position: relative !important;
+				min-height: 380px !important;
+				display: flex !important;
+				align-items: stretch !important;
+				padding: 10% 5% 8% 0% !important;
+			}
+			.elementor-element-contact-bc::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background: rgba(0, 0, 0, 0.35);
+				z-index: 0;
+				pointer-events: none;
+			}
+			.elementor-element-contact-bc > * {
+				position: relative;
+				z-index: 1;
+			}
+			.elementor-element-contact-bc-inner {
+				display: flex !important;
+				align-items: center !important;
+				justify-content: center !important;
+				width: 100% !important;
+				padding-left: 7% !important;
+			}
+			.elementor-element-contact-bc-title-wrap {
+				display: flex !important;
+				align-items: center !important;
+				justify-content: center !important;
+				width: 56% !important;
+				margin: 0 auto !important;
+			}
+			.elementor-element-contact-bc .qodef-qi-animated-text {
+				text-align: center !important;
+			}
+			.elementor-element-contact-bc .qodef-m-title,
+			.elementor-element-contact-bc .qodef-e-word-holder {
+				color: #ffffff !important;
+				line-height: 1.1em !important;
+				letter-spacing: -0.04em !important;
+			}
+			@media (max-width: 1024px) {
+				.elementor-element-contact-bc {
+					min-height: 300px !important;
+					justify-content: center !important;
+					padding: 0 !important;
+				}
+				.elementor-element-contact-bc-inner {
+					padding-left: 0 !important;
+				}
+				.elementor-element-contact-bc-title-wrap {
+					width: 60% !important;
+				}
+				.elementor-element-contact-bc .qodef-m-title {
+					font-size: 60px !important;
+				}
+			}
+			@media (max-width: 767px) {
+				.elementor-element-contact-bc {
+					min-height: 100px !important;
+					padding: 5% !important;
+				}
+				.elementor-element-contact-bc-inner {
+					padding-top: 20% !important;
+				}
+				.elementor-element-contact-bc-title-wrap {
+					width: 80% !important;
+				}
+				.elementor-element-contact-bc .qodef-m-title {
+					font-size: 33px !important;
+				}
+			}
+			/* ── Transform Your Space CTA button ── */
+			.elementor-element-482c8b79.elementor-invisible {
+				visibility: visible !important;
+				opacity: 1 !important;
+				animation: none !important;
+			}
+			.elementor-element-contact-cta-btn {
+				margin-top: 28px !important;
+			}
+			.elementor-element-contact-cta-btn .qodef-qi-button {
+				font-size: 18px;
+				font-weight: 400;
+				color: #ffffff;
+			}
+			.elementor-element-contact-cta-btn .qodef-qi-button.qodef-layout--filled {
+				background-color: #014E44;
+			}
+			.elementor-element-contact-cta-btn .qodef-qi-button:hover {
+				color: #ffffff;
+			}
+			.elementor-element-contact-cta-btn .qodef-qi-button.qodef-layout--filled:not(.qodef-hover--reveal):hover {
+				background-color: #607C63;
+			}
+			.elementor-element-contact-cta-btn .qodef-m-icon {
+				font-size: 51px;
+			}
+			.elementor-element-contact-cta-btn .qodef-m-icon svg {
+				width: 21px;
+				height: 21px;
+			}
+		</style>
+				<div class="elementor-element elementor-element-contact-bc e-flex e-con-boxed e-con e-parent" data-id="contact-bc" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner elementor-element-contact-bc-inner">
+		<div class="elementor-element elementor-element-contact-bc-inner-wrap e-flex e-con-boxed e-con e-child" data-id="contact-bc-inner" data-element_type="container" data-e-type="container">
 					<div class="e-con-inner">
-		<div class="elementor-element elementor-element-1051bd88 e-con-full e-flex e-con e-child" data-id="1051bd88" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div class="elementor-element elementor-element-contact-bc-title-wrap e-con-full e-flex e-con e-child" data-id="contact-bc-title-wrap" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-contact-bc-title elementor-widget elementor-widget-qi_addons_for_elementor_animated_text" data-id="contact-bc-title" data-element_type="widget" data-e-type="widget" data-widget_type="qi_addons_for_elementor_animated_text.default">
+				<div class="elementor-widget-container">
+					<div class="qodef-shortcode qodef-m qodef-qi-animated-text qodef--animated-by-letter qodef--alignment-center qodef-qi--has-appear qodef--appear-fade" >
+		<h1 class="qodef-m-title">
+		<span class="qodef-e-word-holder">Contact</span>	</h1>
+</div>
+				</div>
+				</div>
+				</div>
+					</div>
 				</div>
 					</div>
 				</div>
@@ -523,6 +645,17 @@ body { background: #fffefc; }
 				</div>
 				<div class="elementor-element elementor-element-488aef58 -text-faded elementor-widget elementor-widget-heading" data-id="488aef58" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
 					<h4 class="elementor-heading-title elementor-size-default">From concept to completion, we design spaces that tell your story.</h4>				</div>
+				<div class="elementor-element elementor-element-contact-cta-btn elementor-widget elementor-widget-qi_addons_for_elementor_button" data-id="contact-cta-btn" data-element_type="widget" data-e-type="widget" data-widget_type="qi_addons_for_elementor_button.default">
+				<div class="elementor-widget-container">
+					<a class="qodef-shortcode qodef-m qodef-qi-button qodef-html--link qodef-layout--filled qodef-type--standard qodef-icon--right qodef-hover--icon-move-horizontal-short" href="https://wa.me/919562695661" target="_blank" rel="noopener noreferrer">
+	<span class="qodef-m-text">Get A Free Estimate</span>
+		<span class="qodef-m-icon">
+		<span class="qodef-m-icon-inner">
+			<svg xmlns="http://www.w3.org/2000/svg" height="21" viewBox="0 0 21 21" width="21"><g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" transform="translate(6 6)"><path d="m8.5 7.5v-7h-7"></path><path d="m8.5.5-8 8"></path></g></svg>					</span>
+	</span>
+</a>
+				</div>
+				</div>
 				</div>
 				</div>
 				</div>
