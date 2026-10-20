@@ -48,6 +48,11 @@ function prepareHeader(header) {
       .replace(/\s{2,}/g, ' ');
   });
 
+  // Hide /test/ from navigation (page remains accessible by URL)
+  out = out
+    .replace(/\n<li[^>]*id="menu-item-test"[^>]*>[\s\S]*?<\/li>/g, '')
+    .replace(/\n<li[^>]*>\s*<a[^>]*href="\/test\/"[^>]*>Test<\/a>\s*<\/li>/g, '');
+
   // Calicut is not the homepage — drop current-page markers from nav
   out = out
     .replace(/\s*current-menu-item\b/g, '')
