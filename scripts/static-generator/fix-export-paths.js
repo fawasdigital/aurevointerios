@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Repair mirrored export paths so assets load from a subdirectory (e.g. /calicut-export/).
+ * Repair mirrored export paths so assets load from a subdirectory (e.g. /site-export/).
  *
  * Usage:
  *   node scripts/static-generator/fix-export-paths.js [export-dir] [base-path]
@@ -9,7 +9,7 @@
 const fs = require('fs-extra');
 const path = require('path');
 
-const exportDir = path.resolve(process.cwd(), process.argv[2] || 'calicut-export');
+const exportDir = path.resolve(process.cwd(), process.argv[2] || 'static-site');
 const basePath = (process.argv[3] || `/${path.basename(exportDir)}/`).replace(/\/?$/, '/');
 const base = basePath.replace(/\/$/, '');
 const GOOGLE_FONTS =

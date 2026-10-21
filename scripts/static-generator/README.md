@@ -37,7 +37,7 @@ Pages use directory-based paths for SEO-friendly URLs:
 After crawling, a post-processing pass replaces all absolute source URLs with **root-relative paths** (`/wp-content/...`) so the export works on any host without hard-coded domains.
 
 Use `--root-relative` (or `--base-path /`) for Cloudflare Pages / Netlify.  
-Use `--base-path /calicut/` when hosting in a subdirectory.
+Use `--base-path /your-folder/` when hosting in a subdirectory.
 
 ### 5. Robustness
 - Configurable `--delay` between requests (default **600 ms**)
@@ -52,9 +52,6 @@ npm install
 
 # Full recursive mirror → ./static-site/ (root-relative, ready for Netlify)
 npm run static:generate
-
-# Single Home 02 page + all assets (faster, for /calicut/ workflow)
-npm run mirror:calicut
 ```
 
 ## Commands
@@ -63,14 +60,11 @@ npm run mirror:calicut
 # Portable static site (recursive crawl, root-relative paths)
 npm run static:generate
 
-# Calicut landing page workflow
-npm run build:calicut
-
 # Individual steps
-npm run mirror:calicut          # Mirror Home 02 only
 npm run mirror:full             # Full demo site crawl
-npm run fix:calicut-images      # Fix lazy-load / visibility for static hosting
-npm run deploy:calicut          # Copy export → /calicut/ with Aurevo customizations
+npm run fix:export-images       # Fix lazy-load / visibility for static hosting
+npm run fix:export-paths        # Prefix asset paths for subdirectory hosting
+npm run download:export-assets  # Download any missing mirrored assets
 ```
 
 ## Manual usage
@@ -93,11 +87,11 @@ node scripts/static-generator/mirror.js \
 ```bash
 node scripts/static-generator/mirror.js \
   --url https://themes.pixelwars.org/interique/demo-01/home-02/ \
-  --output calicut-export \
+  --output site-export \
   --entry home-02 \
   --single \
   --delay 400 \
-  --base-path /calicut-export/
+  --base-path /site-export/
 ```
 
 ## CLI options
@@ -137,10 +131,10 @@ static-site/
 
 **Netlify / Cloudflare Pages** — set publish directory to `static-site` (or your `--output` folder).
 
-**Subdirectory** (e.g. `aurevointeriors.com/calicut/`):
+**Subdirectory** (e.g. `example.com/landing/`):
 
 ```bash
-node scripts/static-generator/mirror.js ... --base-path /calicut/
+node scripts/static-generator/mirror.js ... --base-path /landing/
 ```
 
 ## How it works

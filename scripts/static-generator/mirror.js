@@ -59,10 +59,10 @@ Examples:
   # Single landing page + assets into a subdirectory
   node scripts/static-generator/mirror.js \\
     --url https://themes.pixelwars.org/interique/demo-01/home-02/ \\
-    --output calicut-export \\
+    --output site-export \\
     --entry home-02 \\
     --single \\
-    --base-path /calicut/
+    --base-path /site-export/
 `);
 }
 
@@ -156,7 +156,8 @@ function urlPathToRelative(urlStr, scopePrefix, origin) {
   let rel = u.pathname;
   const scopePath = scopePathPrefix(scopePrefix);
   if (u.hostname === new URL(origin).hostname && scopePath && rel.startsWith(scopePath)) {
-    rel = rel.slice(scopePath.length) || '/';
+    rel = rel.slice(scopePath.length) || '';
+    if (!rel || rel === '/') rel = 'scope-root/';
   }
   if (rel.endsWith('/')) rel += 'index.html';
   else if (!path.posix.extname(rel)) rel += '/index.html';
@@ -178,11 +179,10 @@ function urlToLocalPath(urlStr, outputDir, origin, scopePrefix) {
 }
 
 function pageOutputPath(urlStr, outputDir, opts) {
-  const u = new URL(urlStr);
-  const startPath = new URL(opts.startUrl).pathname.replace(/\/$/, '');
-  const pagePath = u.pathname.replace(/\/$/, '');
+  const normalizedStart = new URL(opts.startUrl).href.replace(/#.*$/, '').replace(/\/$/, '');
+  const normalizedPage = urlStr.replace(/#.*$/, '').replace(/\/$/, '');
 
-  if (opts.entrySlug && (pagePath.endsWith(`/${opts.entrySlug}`) || pagePath === startPath)) {
+  if (opts.entrySlug !== null && normalizedPage === normalizedStart) {
     return path.join(outputDir, 'index.html');
   }
 
@@ -301,12 +301,16 @@ class Mirror {
 
     const attrSelectors = [
       ['link[href]', 'href'],
+      ['link[rel="preload"][as="image"]', 'href'],
       ['script[src]', 'src'],
       ['img[src]', 'src'],
       ['img[data-src]', 'data-src'],
       ['img[data-lazy-src]', 'data-lazy-src'],
+      ['img[data-original]', 'data-original'],
+      ['img[data-bg]', 'data-bg'],
       ['source[src]', 'src'],
       ['video[src]', 'src'],
+      ['video[data-src]', 'data-src'],
       ['video[poster]', 'poster'],
       ['audio[src]', 'src'],
       ['embed[src]', 'src'],
@@ -421,14 +425,13 @@ class Mirror {
 
   rewriteHtml(content, filePath) {
     const $ = cheerio.load(content, { decodeEntities: false });
-    const fileDir = path.dirname(filePath);
-    const baseUrl = 'https://placeholder.local/';
+    const rewriteBase = this.opts.scopePrefix;
 
     const rewriteAttr = (el, attr) => {
       const val = $(el).attr(attr);
       if (!val) return;
-      if (attr === 'content' && !/^https?:\/\//i.test(val)) return;
-      const abs = normalizeUrl(val, baseUrl);
+      if (attr === 'content' && !/^https?:\/\//i.test(val) && !val.startsWith('/')) return;
+      const abs = normalizeUrl(val, rewriteBase);
       if (!abs) return;
       const local = this.urlToLocal.get(abs) || this.pageUrlToLocal.get(abs);
       if (local) {
@@ -438,21 +441,52 @@ class Mirror {
 
     const rewriteTargets = [
       ['a', 'href'], ['link', 'href'], ['script', 'src'], ['img', 'src'],
-      ['img', 'data-src'], ['img', 'data-lazy-src'], ['source', 'src'],
-      ['video', 'src'], ['video', 'poster'], ['audio', 'src'],
-      ['embed', 'src'], ['iframe', 'src'], ['object', 'data'], ['form', 'action'],
-      ['meta', 'content'],
+      ['img', 'data-src'], ['img', 'data-lazy-src'], ['img', 'data-original'], ['img', 'data-bg'],
+      ['source', 'src'], ['video', 'src'], ['video', 'data-src'], ['video', 'poster'],
+      ['audio', 'src'], ['embed', 'src'], ['iframe', 'src'], ['object', 'data'],
+      ['form', 'action'], ['meta', 'content'],
     ];
     for (const [tag, attr] of rewriteTargets) {
       $(`${tag}[${attr}]`).each((_, el) => rewriteAttr(el, attr));
     }
 
-    $('img[srcset], source[srcset]').each((_, el) => {
+    $('img').each((_, el) => {
+      const $img = $(el);
+      const src = $img.attr('src') || '';
+      const isPlaceholder = !src || src.startsWith('data:') || /placeholder|blank|1x1/i.test(src);
+      for (const lazyAttr of ['data-src', 'data-lazy-src', 'data-original']) {
+        const lazy = $img.attr(lazyAttr);
+        if (!lazy) continue;
+        const abs = normalizeUrl(lazy, rewriteBase);
+        const local = abs && (this.urlToLocal.get(abs) || this.pageUrlToLocal.get(abs));
+        if (local && isPlaceholder) {
+          $img.attr('src', toPublicPath(local, this.opts.outputDir, this.opts.basePath));
+        }
+        rewriteAttr(el, lazyAttr);
+      }
+      $img.attr('loading', 'eager');
+    });
+
+    $('[style]').each((_, el) => {
+      const style = $(el).attr('style') || '';
+      let updated = style;
+      for (const raw of extractCssUrls(style)) {
+        const abs = normalizeUrl(raw, rewriteBase);
+        if (!abs) continue;
+        const local = this.urlToLocal.get(abs) || this.pageUrlToLocal.get(abs);
+        if (!local) continue;
+        const pub = toPublicPath(local, this.opts.outputDir, this.opts.basePath);
+        updated = updated.split(raw).join(pub);
+      }
+      if (updated !== style) $(el).attr('style', updated);
+    });
+
+    $('img[srcset], source[srcset], picture source[srcset]').each((_, el) => {
       const srcset = $(el).attr('srcset');
       if (!srcset) return;
       const parts = srcset.split(',').map((part) => {
         const bits = part.trim().split(/\s+/);
-        const u = normalizeUrl(bits[0], baseUrl);
+        const u = normalizeUrl(bits[0], rewriteBase);
         if (!u) return part.trim();
         const local = this.urlToLocal.get(u) || this.pageUrlToLocal.get(u);
         if (!local) return part.trim();
@@ -569,6 +603,13 @@ class Mirror {
     console.log(`  processed ${files.length} files, updated ${rewritten}`);
   }
 
+  async fixImages() {
+    console.log('\nFixing image visibility for static hosting…');
+    const { processExport } = require('./image-post-process');
+    const changed = await processExport(this.opts.outputDir, this.opts.basePath);
+    console.log(`  updated ${changed} HTML file(s)`);
+  }
+
   async run() {
     console.log('Static mirror');
     console.log(`  start:  ${this.opts.startUrl}`);
@@ -580,6 +621,7 @@ class Mirror {
 
     await this.crawl();
     await this.postProcess();
+    await this.fixImages();
 
     console.log('\nDone.');
     console.log(`  pages:  ${this.pageUrlToLocal.size}`);

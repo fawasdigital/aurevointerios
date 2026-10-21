@@ -7,7 +7,7 @@ const fs = require('fs-extra');
 const path = require('path');
 const https = require('https');
 
-const exportDir = path.resolve(process.cwd(), process.argv[2] || 'calicut-export');
+const exportDir = path.resolve(process.cwd(), process.argv[2] || 'static-site');
 const basePath = (process.argv[3] || `/${path.basename(exportDir)}/`).replace(/\/?$/, '/');
 const base = basePath.replace(/\/$/, '');
 const DEMO = 'https://themes.pixelwars.org/interique/demo-01/';

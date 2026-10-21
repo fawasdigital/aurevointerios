@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Remove the Test nav link from all page headers.
- * The /test/ page stays available; it is just hidden from the menu.
+ * Strips any leftover Test nav links from page headers.
  */
 
 const fs = require('fs-extra');
@@ -16,7 +16,7 @@ const patterns = [
 async function walk(dir) {
   const out = [];
   for (const entry of await fs.readdir(dir, { withFileTypes: true })) {
-    if (entry.name === 'node_modules' || entry.name === 'calicut-export' || entry.name === '.git') continue;
+    if (entry.name === 'node_modules' || entry.name === 'site-export' || entry.name === 'static-site' || entry.name === '.git') continue;
     const p = path.join(dir, entry.name);
     if (entry.isDirectory()) out.push(...await walk(p));
     else if (entry.name.endsWith('.html')) out.push(p);

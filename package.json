@@ -5,17 +5,17 @@
   "description": "Node.js static site generator — recursive crawl, asset mirror, clean URLs",
   "scripts": {
     "static:generate": "node scripts/static-generator/mirror.js --url https://themes.pixelwars.org/interique/demo-01/home-02/ --output static-site --entry home-02 --delay 600 --scope https://themes.pixelwars.org/interique/demo-01/ --max-pages 80 --root-relative",
+    "build:static": "npm run static:generate && npm run download:export-assets && npm run fix:static-ui",
+    "fix:static-ui": "node scripts/static-generator/fix-static-ui.js static-site /",
+    "deploy:calicut": "node scripts/deploy-calicut.js",
+    "deploy:locations": "node scripts/deploy-location-pages.js",
+    "hero:calicut": "node scripts/inject-calicut-hero.js calicut",
+    "hero:locations": "node scripts/deploy-location-pages.js",
     "mirror": "node scripts/static-generator/mirror.js",
-    "mirror:calicut": "node scripts/static-generator/mirror.js --url https://themes.pixelwars.org/interique/demo-01/home-02/ --output calicut-export --entry home-02 --single --delay 400 --base-path /calicut-export/",
     "mirror:full": "node scripts/static-generator/mirror.js --url https://themes.pixelwars.org/interique/demo-01/home-02/ --output site-export --entry home-02 --delay 600 --scope https://themes.pixelwars.org/interique/demo-01/ --max-pages 80 --root-relative",
-    "fix:calicut-export": "node scripts/static-generator/fix-export-paths.js calicut-export /calicut-export/",
-    "fix:calicut-images": "node scripts/static-generator/fix-export-images.js calicut-export /calicut-export/",
-    "repair:calicut-export": "node scripts/static-generator/repair-calicut-export.js",
-    "download:calicut-assets": "node scripts/static-generator/download-missing-assets.js calicut-export /calicut-export/",
-    "deploy:calicut": "node scripts/static-generator/deploy-to-calicut.js",
-    "header:calicut": "node scripts/static-generator/apply-home-header.js calicut/index.html",
-    "inject:calicut-hmv-ba": "node scripts/static-generator/inject-calicut-hmv-ba.js calicut/index.html",
-    "build:calicut": "npm run mirror:calicut && npm run download:calicut-assets && npm run fix:calicut-export && npm run fix:calicut-images && npm run deploy:calicut"
+    "fix:export-paths": "node scripts/static-generator/fix-export-paths.js",
+    "fix:export-images": "node scripts/static-generator/fix-export-images.js static-site /",
+    "download:export-assets": "node scripts/static-generator/download-missing-assets.js static-site /"
   },
   "dependencies": {
     "axios": "^1.7.9",

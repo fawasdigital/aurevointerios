@@ -3,13 +3,26 @@
   "buildCommand": null,
   "outputDirectory": ".",
   "framework": null,
+  "redirects": [
+    { "source": "/calicut", "destination": "/interior-designers-in-calicut/", "permanent": true },
+    { "source": "/calicut/", "destination": "/interior-designers-in-calicut/", "permanent": true },
+    { "source": "/malappuram", "destination": "/interior-designers-in-malappuram/", "permanent": true },
+    { "source": "/malappuram/", "destination": "/interior-designers-in-malappuram/", "permanent": true },
+    { "source": "/kochi", "destination": "/interior-designers-in-kochi/", "permanent": true },
+    { "source": "/kochi/", "destination": "/interior-designers-in-kochi/", "permanent": true },
+    { "source": "/kerala", "destination": "/interior-designers-in-kerala/", "permanent": true },
+    { "source": "/kerala/", "destination": "/interior-designers-in-kerala/", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/about-us", "destination": "/about-us/index.html" },
     { "source": "/services", "destination": "/services/index.html" },
     { "source": "/portfolio", "destination": "/portfolio/index.html" },
     { "source": "/blog", "destination": "/blog/index.html" },
     { "source": "/contact", "destination": "/contact/index.html" },
-    { "source": "/test", "destination": "/test/index.html" }
+    { "source": "/interior-designers-in-calicut", "destination": "/interior-designers-in-calicut/index.html" },
+    { "source": "/interior-designers-in-malappuram", "destination": "/interior-designers-in-malappuram/index.html" },
+    { "source": "/interior-designers-in-kochi", "destination": "/interior-designers-in-kochi/index.html" },
+    { "source": "/interior-designers-in-kerala", "destination": "/interior-designers-in-kerala/index.html" }
   ],
   "headers": [
     {
