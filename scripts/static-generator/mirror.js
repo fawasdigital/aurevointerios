@@ -209,7 +209,7 @@ async function fetchBuffer(url, opts, retries = opts.maxRetries) {
         responseType: 'arraybuffer',
         timeout: 45000,
         headers: {
-          'User-Agent': 'AurevoStaticMirror/1.0 (+https://aurevointeriors.com)',
+          'User-Agent': 'AurevoStaticMirror/1.0 (+https://aurevointerios.vercel.app)',
           Accept: '*/*',
         },
         maxRedirects: 5,

@@ -1,4 +1,4 @@
-# https://aurevointeriors.com/robots.txt
+# https://aurevointerios.vercel.app/robots.txt
 # https://aurevointerios.vercel.app/robots.txt
 
 User-agent: *
@@ -9,4 +9,4 @@ Disallow: /wp-admin/
 Disallow: /wp-includes/
 Disallow: /wp-json/
 
-Sitemap: https://aurevointeriors.com/sitemap.xml
+Sitemap: https://aurevointerios.vercel.app/sitemap.xml

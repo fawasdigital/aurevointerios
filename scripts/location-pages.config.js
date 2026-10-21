@@ -1,4 +1,4 @@
-const SITE = 'https://aurevointeriors.com';
+const SITE = 'https://aurevointerios.vercel.app';
 
 const LOCATION_PAGES = [
   {
