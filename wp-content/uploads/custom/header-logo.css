@@ -1,0 +1,15 @@
+/* Site-wide header logo size */
+@media screen and (min-width: 992px) {
+	.site-title img {
+		max-height: 100px !important;
+	}
+	.is-header-smaller .site-header.clone .site-title img {
+		max-height: 88px !important;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	.site-title img {
+		max-height: 68px !important;
+	}
+}

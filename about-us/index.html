@@ -273,6 +273,7 @@ body { background: #fffefc; }
 
 .is-menu-bar .menu-wrap:after { color: #222222; }
 </style>
+<link rel='stylesheet' href='/wp-content/uploads/custom/header-logo.css' type='text/css' media='all' />
 <link rel='stylesheet' id='swiper-css' href='/wp-content/plugins/qi-addons-for-elementor/assets/plugins/swiper/8.4.5/swiper.min.css?ver=8.4.5' type='text/css' media='all' />
 <link rel='stylesheet' id='elementor-frontend-css' href='/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.35.5' type='text/css' media='all' />
 <link rel='stylesheet' id='elementor-post-7-css' href='/wp-content/uploads/elementor/css/post-7.css?ver=1772794166' type='text/css' media='all' />
@@ -449,6 +450,131 @@ body { background: #fffefc; }
 			}
 			.elementor-element-37922c31 .about-side-img {
 				display: none;
+			}
+			/* ── Founder Story section ── */
+			.founder-story-section {
+				padding: clamp(3.5rem, 7vw, 5.5rem) clamp(1.25rem, 4vw, 3rem) clamp(2.5rem, 4vw, 3.5rem);
+				background: #fff;
+				border-top: 1px solid #eee;
+			}
+			.founder-story-inner {
+				max-width: 1140px;
+				margin: 0 auto;
+			}
+			.founder-story-layout {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: flex-start;
+				justify-content: space-between;
+				gap: clamp(1.5rem, 3vw, 2.5rem);
+			}
+			.founder-story-content {
+				flex: 1 1 58%;
+				min-width: min(100%, 280px);
+				max-width: 640px;
+			}
+			.founder-story-header {
+				margin-bottom: clamp(1rem, 2vw, 1.5rem);
+			}
+			.founder-story-header__title {
+				font-family: 'Bricolage Grotesque', sans-serif;
+				font-size: clamp(2rem, 4.2vw, 3.25rem);
+				font-weight: 500;
+				line-height: 1.15;
+				margin: 0 0 1rem;
+				color: #111;
+			}
+			.founder-story-header__meta {
+				margin: 0;
+			}
+			.founder-story-header__name {
+				font-family: 'Bricolage Grotesque', sans-serif;
+				font-size: clamp(1.2rem, 2vw, 1.6rem);
+				font-weight: 500;
+				line-height: 1.25;
+				margin: 0 0 0.35rem;
+				color: #222;
+			}
+			.founder-story-header__role {
+				font-family: 'Jost', sans-serif;
+				font-size: clamp(0.9rem, 1.1vw, 1rem);
+				font-weight: 400;
+				line-height: 1.5;
+				margin: 0 0 0.75rem;
+				color: #666;
+			}
+			.founder-story-header__social {
+				display: flex;
+				align-items: center;
+				gap: 0.625rem;
+			}
+			.founder-story-header__social a {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 36px;
+				height: 36px;
+				border: 1px solid #ddd;
+				border-radius: 50%;
+				color: #111;
+				text-decoration: none;
+				transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+			}
+			.founder-story-header__social a:hover {
+				background-color: #607c63;
+				border-color: #607c63;
+				color: #fff;
+			}
+			.founder-story-header__social svg {
+				width: 16px;
+				height: 16px;
+				fill: currentColor;
+			}
+			.founder-story-body__text p {
+				font-family: 'Jost', sans-serif;
+				font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+				line-height: 1.8;
+				color: #444;
+				margin: 0 0 1rem;
+				text-align: left;
+			}
+			.founder-story-body__text p:last-child {
+				margin-bottom: 0;
+			}
+			.founder-story-body__image {
+				flex: 0 0 auto;
+				width: min(100%, 340px);
+				align-self: flex-start;
+				margin-left: auto;
+				margin-top: clamp(2.5rem, 4.5vw, 3.75rem);
+			}
+			.founder-story-body__image img {
+				width: 100%;
+				max-width: 340px;
+				height: auto;
+				max-height: 400px;
+				aspect-ratio: 4 / 5;
+				object-fit: cover;
+				border-radius: 8px;
+				display: block;
+			}
+			@media (max-width: 767px) {
+				.founder-story-section {
+					padding-top: clamp(2.75rem, 10vw, 3.5rem);
+				}
+				.founder-story-layout {
+					flex-direction: column;
+				}
+				.founder-story-body__image {
+					width: 100%;
+					max-width: 300px;
+					margin: 1rem auto 0;
+				}
+				.founder-story-body__image img {
+					max-width: 300px;
+					max-height: 360px;
+					margin: 0 auto;
+				}
 			}
 		</style>
 				<div class="elementor-element elementor-element-6296a597 e-flex e-con-boxed e-con e-parent" data-id="6296a597" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;slideshow&quot;,&quot;background_slideshow_gallery&quot;:[{&quot;id&quot;:18810,&quot;url&quot;:&quot;https:\/\/aurevointeriors.com\/wp-content\/uploads\/2025\/10\/Frame-4-1.png&quot;},{&quot;id&quot;:18866,&quot;url&quot;:&quot;https:\/\/aurevointeriors.com\/wp-content\/uploads\/2025\/10\/Group-1.png&quot;},{&quot;id&quot;:18827,&quot;url&quot;:&quot;https:\/\/aurevointeriors.com\/wp-content\/uploads\/2025\/10\/Frame-16.png&quot;}],&quot;background_slideshow_lazyload&quot;:&quot;yes&quot;,&quot;background_slideshow_ken_burns&quot;:&quot;yes&quot;,&quot;background_slideshow_loop&quot;:&quot;yes&quot;,&quot;background_slideshow_slide_duration&quot;:5000,&quot;background_slideshow_slide_transition&quot;:&quot;fade&quot;,&quot;background_slideshow_transition_duration&quot;:500,&quot;background_slideshow_ken_burns_zoom_direction&quot;:&quot;in&quot;}">
@@ -863,6 +989,37 @@ body { background: #fffefc; }
 				</div>
 					</div>
 				</div>
+		<section class="founder-story-section" id="founder-story">
+			<div class="founder-story-inner">
+				<div class="founder-story-layout">
+					<div class="founder-story-content">
+						<div class="founder-story-header">
+							<h2 class="founder-story-header__title">Founder Story</h2>
+							<div class="founder-story-header__meta">
+								<h3 class="founder-story-header__name">Muhammed Farhan KT</h3>
+								<p class="founder-story-header__role">Founder &amp; CEO of Aurevo Interiors</p>
+								<div class="founder-story-header__social">
+									<a href="https://www.instagram.com/aurevo.interiors/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+										<svg aria-hidden="true" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+									</a>
+									<a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+										<svg aria-hidden="true" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 63.1-34.5 67.4 0 79.7 44.3 79.7 101.9V416z"/></svg>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="founder-story-body__text">
+							<p>Muhammed Farhan KT founded Aurevo Interiors with a clear vision — to create interiors that are functional, elegant, and deeply personal. With 7+ years of experience and 100+ completed projects across Kerala, he leads every project with hands-on expertise from concept to completion.</p>
+							<p>What started as a passion for thoughtful design has grown into one of Kerala’s trusted interior design firms, delivering residential and commercial spaces including modular kitchens, wardrobes, living rooms, bedrooms, and office interiors.</p>
+							<p>At Aurevo, Farhan believes great design is not just about aesthetics — it’s about understanding how people live, work, and feel in their spaces. That philosophy drives every project the team takes on.</p>
+						</div>
+					</div>
+					<div class="founder-story-body__image">
+						<img src="/wp-content/uploads/custom/about-side-image.jpg" alt="Aurevo Interiors founder" loading="lazy" />
+					</div>
+				</div>
+			</div>
+		</section>
 		<div class="elementor-element elementor-element-cd2a6a9 e-flex e-con-boxed e-con e-parent" data-id="cd2a6a9" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
 					<div class="e-con-inner">
 		<div class="elementor-element elementor-element-4cf692c e-con-full e-flex e-con e-child" data-id="4cf692c" data-element_type="container" data-e-type="container">
