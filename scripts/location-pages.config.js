@@ -27,7 +27,7 @@ const LOCATION_PAGES = [
     city: 'Kerala',
     title: 'Interior Designers in Kerala',
     meta:
-      'Looking for interior designers in Kerala? Aurevo Interiors delivers award-winning home and office interior design across Calicut, Kochi, Malappuram and all of Kerala.',
+      'Aurevo Interiors is an interior design company in Kerala with 6+ years of experience and 100+ completed projects. Book a consultation today.',
   },
 ];
 
