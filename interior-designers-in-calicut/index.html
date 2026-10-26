@@ -1491,6 +1491,189 @@ body { background: #fffefc; }
 				</div>
 					</div>
 				</div>
+		<section class="kerala-ba" aria-labelledby="kerala-ba-title">
+			<div class="kerala-ba__inner">
+				<h2 id="kerala-ba-title" class="kerala-ba__title"><span class="kerala-ba__brand">Before &amp; After | Aurevo Interiors</span></h2>
+				<p class="kerala-ba__text">See the difference! Discover how ordinary spaces transform into stunning, modern, and functional interiors with Aurevo Interiors.</p>
+				<div class="kerala-ba__frame">
+					<div class="kerala-ba__compare" data-kerala-ba>
+						<img title="Room before interior design work" class="kerala-ba__base" src="/wp-content/uploads/custom/kerala-before.jpg?v=3" alt="Room before interior design work" draggable="false">
+						<div class="kerala-ba__reveal">
+							<img title="Finished dining room after Aurevo interior design" class="kerala-ba__top" src="/wp-content/uploads/custom/kerala-after.jpg?v=3" alt="Finished dining room after Aurevo interior design" draggable="false">
+						</div>
+						<span class="kerala-ba__bar" aria-hidden="true"></span>
+						<button class="kerala-ba__handle" type="button" aria-label="Drag to compare before and after" aria-valuemin="2" aria-valuemax="98" aria-valuenow="50"></button>
+					</div>
+				</div>
+			</div>
+		</section>
+		<style>
+			.elementor-element-b47df0e > .e-con-inner {
+				padding-bottom: 8px !important;
+			}
+			.kerala-ba {
+				background: #ffffff;
+				padding: 48px 6% 62px;
+				box-sizing: border-box;
+			}
+			.kerala-ba__inner { max-width: 1040px; margin: 0 auto; }
+			.kerala-ba__title {
+				margin: 0;
+				text-align: center;
+				font-family: "Bricolage Grotesque", sans-serif;
+				font-size: clamp(32px, 4vw, 48px);
+				font-weight: 500;
+				letter-spacing: -0.03em;
+				text-transform: none;
+				color: #000000;
+				line-height: 1.15;
+			}
+			.kerala-ba__brand { color: #000000; }
+			.kerala-ba__text {
+				margin: 12px auto 28px;
+				max-width: 640px;
+				text-align: center;
+				color: #717780;
+				font-family: "Jost", sans-serif;
+				font-size: 16px;
+				font-weight: 400;
+				line-height: 1.5;
+			}
+			.kerala-ba__frame {
+				background: #ffffff;
+				border: 8px solid #607c63;
+				margin: 0 auto;
+			}
+			.kerala-ba__compare {
+				position: relative;
+				aspect-ratio: 1024 / 620;
+				height: auto;
+				overflow: hidden;
+				cursor: ew-resize;
+				touch-action: none;
+				user-select: none;
+				background: #f4f1ea;
+			}
+			.kerala-ba__base,
+			.kerala-ba__top {
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: block;
+				width: 100%;
+				height: 100%;
+				max-width: none !important;
+				object-fit: cover;
+				object-position: center;
+				pointer-events: none;
+			}
+			.kerala-ba__reveal {
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				width: 50%;
+				overflow: hidden;
+				z-index: 1;
+			}
+			.kerala-ba__bar {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 50%;
+				width: 3px;
+				background: #607c63;
+				transform: translateX(-50%);
+				z-index: 2;
+				pointer-events: none;
+			}
+			.kerala-ba__handle {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 44px;
+				height: 44px;
+				margin: 0;
+				padding: 0;
+				border: 2px solid #607c63;
+				border-radius: 50%;
+				background: #ffffff;
+				transform: translate(-50%, -50%);
+				box-shadow: none;
+				cursor: ew-resize;
+				z-index: 3;
+			}
+			.kerala-ba__handle::before,
+			.kerala-ba__handle::after {
+				content: "";
+				position: absolute;
+				top: 50%;
+				width: 8px;
+				height: 8px;
+				border-top: 3px solid #607c63;
+				border-right: 3px solid #607c63;
+			}
+			.kerala-ba__handle::before { left: 12px; transform: translateY(-50%) rotate(-135deg); }
+			.kerala-ba__handle::after { right: 12px; transform: translateY(-50%) rotate(45deg); }
+			.kerala-ba__handle:focus-visible { outline: 2px solid #607c63; outline-offset: 3px; }
+			@media (max-width: 767px) {
+				.kerala-ba { padding: 36px 16px 42px; }
+			}
+		</style>
+		<script>
+			(function () {
+				var root = document.querySelector("[data-kerala-ba]");
+				if (!root) return;
+				var baseImg = root.querySelector(".kerala-ba__base");
+				var topImg = root.querySelector(".kerala-ba__top");
+				var reveal = root.querySelector(".kerala-ba__reveal");
+				var handle = root.querySelector(".kerala-ba__handle");
+				var bar = root.querySelector(".kerala-ba__bar");
+				var dragging = false;
+				var current = 50;
+				function lockImages() {
+					var full = root.clientWidth + "px";
+					var h = root.clientHeight + "px";
+					baseImg.style.setProperty("width", full, "important");
+					baseImg.style.setProperty("height", h, "important");
+					baseImg.style.setProperty("left", "0px", "important");
+					baseImg.style.setProperty("max-width", "none", "important");
+					topImg.style.setProperty("width", full, "important");
+					topImg.style.setProperty("height", h, "important");
+					topImg.style.setProperty("left", "0px", "important");
+					topImg.style.setProperty("max-width", "none", "important");
+				}
+				function setFromX(clientX) {
+					var rect = root.getBoundingClientRect();
+					var pct = (clientX - rect.left) / rect.width;
+					pct = Math.max(0.02, Math.min(0.98, pct));
+					current = pct * 100;
+					reveal.style.width = current + "%";
+					handle.style.left = current + "%";
+					bar.style.left = current + "%";
+					handle.setAttribute("aria-valuenow", String(Math.round(current)));
+				}
+				lockImages();
+				window.addEventListener("resize", lockImages);
+				root.addEventListener("pointerdown", function (e) {
+					dragging = true;
+					root.setPointerCapture(e.pointerId);
+					setFromX(e.clientX);
+				});
+				root.addEventListener("pointermove", function (e) {
+					if (!dragging) return;
+					setFromX(e.clientX);
+				});
+				function stop() { dragging = false; }
+				root.addEventListener("pointerup", stop);
+				root.addEventListener("pointercancel", stop);
+				handle.addEventListener("keydown", function (e) {
+					var rect = root.getBoundingClientRect();
+					if (e.key === "ArrowLeft") setFromX(rect.left + ((current - 4) / 100) * rect.width);
+					if (e.key === "ArrowRight") setFromX(rect.left + ((current + 4) / 100) * rect.width);
+				});
+			})();
+		</script>
 		<div class="elementor-element elementor-element-31cde44 e-flex e-con-boxed e-con e-parent" data-id="31cde44" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
 					<div class="e-con-inner">
 		<div class="elementor-element elementor-element-459aebc e-con-full e-flex e-con e-child" data-id="459aebc" data-element_type="container" data-e-type="container">
