@@ -10,11 +10,6 @@ const { LOCATION_PAGES } = require('./location-pages.config');
 
 const root = process.cwd();
 
-const PLUS_ICON =
-  '<svg xmlns="http://www.w3.org/2000/svg" id="Capa_1" height="512" viewBox="0 0 207.2 207.2" width="512"><g><g id="_3"><path d="m103.6 207.2c-4.087 0-7.4-3.313-7.4-7.4v-192.4c0-4.087 3.313-7.4 7.4-7.4s7.4 3.313 7.4 7.4v192.4c0 4.087-3.313 7.4-7.4 7.4z"></path><path d="m199.8 111h-192.4c-4.087 0-7.4-3.313-7.4-7.4s3.313-7.4 7.4-7.4h192.4c4.087 0 7.4 3.313 7.4 7.4s-3.313 7.4-7.4 7.4z"></path></g></g></svg>';
-const MINUS_ICON =
-  '<svg xmlns="http://www.w3.org/2000/svg" id="Capa_1" height="512" viewBox="0 0 512 512" width="512"><g><path d="m480 288h-448c-17.673 0-32-14.327-32-32s14.327-32 32-32h448c17.673 0 32 14.327 32 32s-14.327 32-32 32z"></path></g></svg>';
-
 const FAQ_ITEMS = [
   {
     q: 'Why choose Aurevo Interiors in {{city}}?',
@@ -72,174 +67,154 @@ function fillCity(text, city) {
   return text.replace(/\{\{city\}\}/g, city);
 }
 
+function shieldHeadingQ(text) {
+  return text.replace(/Q/g, '<span class="loc-faq__qcap">Q</span>');
+}
+
 function buildAccordionItem(question, answer) {
-  return `<h3 class="qodef-e-title-holder">
-	<span class="qodef-e-title">${question}</span>
-	<span class="qodef-e-mark">
-		<span class="qodef-icon--plus">
-				<span class="qodef-e-icon">
-		${PLUS_ICON}	</span>
-			</span>
-		<span class="qodef-icon--minus">
-				<span class="qodef-e-icon">
-		${MINUS_ICON}	</span>
-			</span>
-	</span>
-</h3>
-<div class="qodef-e-content">
-	<div class="qodef-e-content-inner">
-		<p>${answer}</p>	</div>
-</div>`;
+  return `<article class="loc-faq__item">
+	<h3 class="loc-faq__q">
+		<button type="button" class="loc-faq__btn" aria-expanded="false">
+			<span class="loc-faq__label">${question}</span>
+			<span class="loc-faq__icon" aria-hidden="true"></span>
+		</button>
+	</h3>
+	<div class="loc-faq__a" hidden>
+		<p>${answer}</p>
+	</div>
+</article>`;
 }
 
 function buildFaqStyles() {
   return `			/* location-faq-styles-start */
-			.elementor-14997 .elementor-element-locfaq01 {
-				--display: flex;
-				--flex-direction: row;
-				--flex-wrap: wrap;
-				--padding-top: 1.5%;
-				--padding-bottom: 4%;
-				--padding-left: 5%;
-				--padding-right: 5%;
-				margin-top: 0;
-				padding-top: 1.5%;
-				padding-bottom: 4%;
-				padding-left: 5%;
-				padding-right: 5%;
+			.loc-faq {
+				padding: 1.5% 5% 4%;
 			}
-			.elementor-14997 .elementor-element-locfaq01 > .e-con-inner {
-				display: flex;
-				flex-direction: row;
-				flex-wrap: wrap;
-				width: 100%;
-				align-items: flex-start;
-				gap: 0;
-			}
-			.elementor-14997 .elementor-element-locfaq02 {
-				width: 100%;
-				flex: 0 0 100%;
-				max-width: 100%;
-				margin: 0 0 18px;
-			}
-			.elementor-14997 .elementor-element-locfaq03 > .elementor-widget-container {
-				margin: 0;
-				padding: 0;
-			}
-			.elementor-14997 .elementor-element-locfaq03 .elementor-heading-title {
+			.loc-faq__title {
 				font-family: "Bricolage Grotesque", sans-serif;
 				font-size: clamp(30px, 4vw, 44px);
 				font-weight: 500;
 				line-height: 1.12;
 				letter-spacing: -0.02em;
 				color: #000000;
-				margin: 0;
-				padding: 0;
 				text-align: center;
-			}
-			.elementor-14997 .elementor-element-locfaq07 {
-				display: flex;
-				flex-direction: row;
-				flex-wrap: wrap;
-				width: 100%;
-				flex: 0 0 100%;
-				max-width: 100%;
-				gap: 20px;
-				align-items: flex-start;
-			}
-			.elementor-14997 .elementor-element-locfaq08,
-			.elementor-14997 .elementor-element-locfaq09 {
-				width: calc(50% - 10px);
-				flex: 0 0 calc(50% - 10px);
-				max-width: calc(50% - 10px);
-			}
-			.elementor-14997 .elementor-element-locfaq08 > .elementor-widget-container,
-			.elementor-14997 .elementor-element-locfaq09 > .elementor-widget-container {
-				margin: 0;
+				margin: 0 0 28px;
 				padding: 0;
 			}
-			.elementor-14997 .elementor-element-locfaq08 .qodef-qi-accordion,
-			.elementor-14997 .elementor-element-locfaq09 .qodef-qi-accordion {
-				visibility: visible !important;
+			.loc-faq__qcap {
+				font-family: "Jost", sans-serif;
+				font-weight: 500;
 			}
-			.elementor-14997 .elementor-element-locfaq08 .qodef-qi-accordion .qodef-e-title-holder,
-			.elementor-14997 .elementor-element-locfaq09 .qodef-qi-accordion .qodef-e-title-holder {
+			.loc-faq__grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				grid-template-rows: repeat(var(--loc-faq-rows), auto);
+				grid-auto-flow: column;
+				gap: 12px 20px;
+				align-items: start;
+			}
+			.loc-faq__item {
+				background: #ffffff;
+				border: 1px solid rgba(0, 0, 0, 0.06);
+				border-radius: 6px;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+			}
+			.loc-faq__item.is-open {
+				border-color: rgba(96, 124, 99, 0.35);
+			}
+			.loc-faq__q {
+				margin: 0;
+				padding: 0;
+				font-size: inherit;
+				font-weight: inherit;
+				line-height: inherit;
+				letter-spacing: 0;
+				text-transform: none;
+			}
+			.loc-faq__btn {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 12px;
+				width: 100%;
+				margin: 0;
+				padding: 16px 18px;
+				border: 0;
+				border-radius: 6px;
+				background: transparent;
+				box-shadow: none;
+				color: #000000;
 				font-family: "Jost", sans-serif;
 				font-size: 17px;
 				font-weight: 500;
 				line-height: 1.4;
-				color: #000000;
-				background-color: #ffffff;
-				border: 1px solid rgba(0, 0, 0, 0.06);
-				border-radius: 6px;
-				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-				padding: 16px 18px !important;
-				margin: 0 0 12px !important;
-				gap: 12px;
+				letter-spacing: 0;
+				text-transform: none;
+				text-align: left;
 				cursor: pointer;
 			}
-			.elementor-14997 .elementor-element-locfaq08 .qodef-qi-accordion .qodef-e-title-holder.ui-state-active,
-			.elementor-14997 .elementor-element-locfaq09 .qodef-qi-accordion .qodef-e-title-holder.ui-state-active {
-				border-color: rgba(96, 124, 99, 0.35);
+			.loc-faq__label {
+				flex: 1 1 auto;
 			}
-			.elementor-14997 .elementor-element-locfaq08 .qodef-qi-accordion .qodef-e-mark,
-			.elementor-14997 .elementor-element-locfaq09 .qodef-qi-accordion .qodef-e-mark {
-				flex-shrink: 0;
-			}
-			.elementor-14997 .elementor-element-locfaq08 .qodef-qi-accordion .qodef-e-mark svg,
-			.elementor-14997 .elementor-element-locfaq09 .qodef-qi-accordion .qodef-e-mark svg {
+			.loc-faq__icon {
+				position: relative;
 				width: 14px;
 				height: 14px;
-				fill: #000000;
+				flex: 0 0 14px;
 			}
-			.elementor-14997 .elementor-element-locfaq08 .qodef-qi-accordion .qodef-e-content,
-			.elementor-14997 .elementor-element-locfaq09 .qodef-qi-accordion .qodef-e-content {
+			.loc-faq__icon::before,
+			.loc-faq__icon::after {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 6px;
+				width: 14px;
+				height: 1.5px;
+				background: #000000;
+			}
+			.loc-faq__icon::after {
+				transform: rotate(90deg);
+			}
+			.loc-faq__item.is-open .loc-faq__icon::after {
+				content: none;
+			}
+			.loc-faq__a {
+				padding: 0 18px 16px;
 				color: rgba(0, 0, 0, 0.73);
-				background-color: #ffffff;
-				border: 1px solid rgba(0, 0, 0, 0.06);
-				border-top: 0;
-				border-radius: 0 0 6px 6px;
-				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-				padding: 0 18px 16px !important;
-				margin: -8px 0 12px !important;
 			}
-			.elementor-14997 .elementor-element-locfaq08 .qodef-qi-accordion .qodef-e-content p,
-			.elementor-14997 .elementor-element-locfaq09 .qodef-qi-accordion .qodef-e-content p {
+			.loc-faq__a p {
+				margin: 0;
 				font-family: "Jost", sans-serif;
 				font-size: 15px;
+				font-weight: 400;
 				line-height: 1.6;
-				margin: 0;
+				letter-spacing: 0;
+				text-transform: none;
+				color: rgba(0, 0, 0, 0.73);
 			}
 			@media (max-width: 1024px) {
-				.elementor-14997 .elementor-element-locfaq01 {
+				.loc-faq {
 					padding-top: 3%;
 					padding-bottom: 5%;
 				}
-				.elementor-14997 .elementor-element-locfaq02 {
-					margin-bottom: 16px;
-				}
-				.elementor-14997 .elementor-element-locfaq03 .elementor-heading-title {
+				.loc-faq__title {
 					font-size: 28px;
+					margin-bottom: 18px;
 				}
-				.elementor-14997 .elementor-element-locfaq08 .qodef-qi-accordion .qodef-e-title-holder,
-				.elementor-14997 .elementor-element-locfaq09 .qodef-qi-accordion .qodef-e-title-holder {
+				.loc-faq__btn {
 					font-size: 16px;
-					padding: 14px 16px !important;
+					padding: 14px 16px;
 				}
 			}
 			@media (max-width: 767px) {
-				.elementor-14997 .elementor-element-locfaq01 {
+				.loc-faq {
 					padding-top: 5%;
 					padding-bottom: 6%;
 				}
-				.elementor-14997 .elementor-element-locfaq07 {
-					gap: 0;
-				}
-				.elementor-14997 .elementor-element-locfaq08,
-				.elementor-14997 .elementor-element-locfaq09 {
-					width: 100%;
-					flex: 0 0 100%;
-					max-width: 100%;
+				.loc-faq__grid {
+					grid-template-columns: 1fr;
+					grid-template-rows: none;
+					grid-auto-flow: row;
 				}
 			}
 			/* location-faq-styles-end */`;
@@ -268,24 +243,32 @@ function ensureFaqInitScript(html) {
   );
   const snippet = `<script type="text/javascript">
 /* location-faq-init */
-(function ($) {
-  function initLocationFaqAccordion() {
-    $('.elementor-element-locfaq08 .qodef-qi-accordion, .elementor-element-locfaq09 .qodef-qi-accordion').each(function () {
-      var $accordion = $(this);
-      if ($accordion.hasClass('qodef--init')) return;
-      if (
-        window.qodefAddonsCore &&
-        qodefAddonsCore.shortcodes &&
-        qodefAddonsCore.shortcodes.qi_addons_for_elementor_accordion &&
-        qodefAddonsCore.shortcodes.qi_addons_for_elementor_accordion.qodefAccordion
-      ) {
-        qodefAddonsCore.shortcodes.qi_addons_for_elementor_accordion.qodefAccordion.initItem($accordion);
-      }
-    });
+(function () {
+  function closeItem(item) {
+    item.classList.remove('is-open');
+    var btn = item.querySelector('.loc-faq__btn');
+    var panel = item.querySelector('.loc-faq__a');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+    if (panel) panel.hidden = true;
   }
-  $(document).ready(initLocationFaqAccordion);
-  $(window).on('load', initLocationFaqAccordion);
-})(jQuery);
+  function openItem(item) {
+    item.classList.add('is-open');
+    var btn = item.querySelector('.loc-faq__btn');
+    var panel = item.querySelector('.loc-faq__a');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
+    if (panel) panel.hidden = false;
+  }
+  document.addEventListener('click', function (event) {
+    var btn = event.target.closest && event.target.closest('.loc-faq__btn');
+    if (!btn) return;
+    var item = btn.closest('.loc-faq__item');
+    var root = btn.closest('.loc-faq');
+    if (!item || !root) return;
+    var wasOpen = item.classList.contains('is-open');
+    root.querySelectorAll('.loc-faq__item.is-open').forEach(closeItem);
+    if (!wasOpen) openItem(item);
+  });
+})();
 </script>
 `;
   const anchor = 'id="qi-addons-for-elementor-script-js"';
@@ -312,43 +295,61 @@ function ensureAccordionScript(html) {
   );
 }
 
-function buildFaqHtml(city) {
-  const leftItems = FAQ_ITEMS.slice(0, 5)
-    .map(({ q, a }) => buildAccordionItem(fillCity(q, city), fillCity(a, city)))
-    .join('\n');
-  const rightItems = FAQ_ITEMS.slice(5)
-    .map(({ q, a }) => buildAccordionItem(fillCity(q, city), fillCity(a, city)))
-    .join('\n');
-
+function buildFaqSection(title, items) {
+  const rows = Math.ceil(items.length / 2);
+  const cards = items.map(({ q, a }) => buildAccordionItem(q, a)).join('\n');
   return `		<!-- location-faq-start -->
-		<div class="elementor-element elementor-element-locfaq01 e-flex e-con-boxed e-con e-parent" data-id="locfaq01" data-element_type="container" data-e-type="container">
-					<div class="e-con-inner">
-		<div class="elementor-element elementor-element-locfaq02 e-con-full e-flex e-con e-child" data-id="locfaq02" data-element_type="container" data-e-type="container">
-				<div class="elementor-element elementor-element-locfaq03 elementor-widget elementor-widget-heading" data-id="locfaq03" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-					<h2 class="elementor-heading-title elementor-size-default">Frequently Asked Questions</h2>
-				</div>
-				</div>
-				</div>
-		<div class="elementor-element elementor-element-locfaq07 e-con-full e-flex e-con e-child" data-id="locfaq07" data-element_type="container" data-e-type="container">
-				<div class="elementor-element elementor-element-locfaq08 elementor-widget elementor-widget-qi_addons_for_elementor_accordion" data-id="locfaq08" data-element_type="widget" data-e-type="widget" data-widget_type="qi_addons_for_elementor_accordion.default">
-				<div class="elementor-widget-container">
-					<div class="qodef-shortcode qodef-m qodef-qi-accordion qodef-qi-clear qodef-behavior--accordion qodef-layout--simple qodef-style--border-between qodef-height--auto">
-${leftItems}
-</div>
-				</div>
-				</div>
-				<div class="elementor-element elementor-element-locfaq09 elementor-widget elementor-widget-qi_addons_for_elementor_accordion" data-id="locfaq09" data-element_type="widget" data-e-type="widget" data-widget_type="qi_addons_for_elementor_accordion.default">
-				<div class="elementor-widget-container">
-					<div class="qodef-shortcode qodef-m qodef-qi-accordion qodef-qi-clear qodef-behavior--accordion qodef-layout--simple qodef-style--border-between qodef-height--auto">
-${rightItems}
-</div>
-				</div>
-				</div>
-				</div>
-					</div>
-				</div>
+		<section class="loc-faq" aria-label="${title.replace(/<[^>]+>/g, '')}">
+			<h2 class="loc-faq__title">${shieldHeadingQ(title)}</h2>
+			<div class="loc-faq__grid" style="--loc-faq-rows: ${rows}">
+${cards}
+			</div>
+		</section>
 <!-- location-faq-end -->`;
+}
+
+function buildFaqHtml(city) {
+  const items = FAQ_ITEMS.map(({ q, a }) => ({
+    q: fillCity(q, city),
+    a: fillCity(a, city),
+  }));
+  return buildFaqSection('Frequently Asked Questions', items);
+}
+
+function parseExistingFaq(html) {
+  const blockMatch = html.match(/<!-- location-faq-start -->([\s\S]*?)<!-- location-faq-end -->/);
+  if (!blockMatch) return null;
+  const block = blockMatch[1];
+  const titleMatch = block.match(/<h2[^>]*>([\s\S]*?)<\/h2>/);
+  const title = titleMatch
+    ? titleMatch[1].replace(/<span class="loc-faq__qcap">Q<\/span>/g, 'Q').trim()
+    : 'Frequently Asked Questions';
+  const itemRe =
+    /<(?:span class="qodef-e-title"|span class="loc-faq__label")>([\s\S]*?)<\/span>[\s\S]*?<(?:div class="qodef-e-content-inner"|div class="loc-faq__a")>(?:\s*<(?:p|h6)>)?([\s\S]*?)(?:<\/(?:p|h6)>)?\s*<\/div>/g;
+  const items = [];
+  let match;
+  while ((match = itemRe.exec(block))) {
+    items.push({ q: match[1].trim(), a: match[2].trim() });
+  }
+  if (!items.length) return null;
+  return { title, items };
+}
+
+function upgradeLocationFaq(page) {
+  const filePath = path.join(root, page.slug, 'index.html');
+  let html = fs.readFileSync(filePath, 'utf8');
+  const parsed = parseExistingFaq(html);
+  if (!parsed) {
+    throw new Error(`No FAQ block to upgrade in ${page.slug}/index.html`);
+  }
+  html = html.replace(
+    /[\t ]*<!-- location-faq-start -->[\s\S]*?<!-- location-faq-end -->\n?/,
+    `\n${buildFaqSection(parsed.title, parsed.items)}\n`
+  );
+  html = ensureFaqStyles(html);
+  html = ensureFaqInitScript(html);
+  fs.writeFileSync(filePath, html, 'utf8');
+  console.log(`Upgraded FAQ layout in ${page.slug}/index.html (${parsed.items.length} items)`);
 }
 
 function findFaqInsertPoint(html, slug) {
@@ -434,6 +435,15 @@ async function injectAllLocationFaq(slugs = null) {
   }
 }
 
+async function upgradeAllLocationFaq(slugs = null) {
+  const pages = slugs
+    ? LOCATION_PAGES.filter((p) => slugs.includes(p.slug))
+    : LOCATION_PAGES;
+  for (const page of pages) {
+    upgradeLocationFaq(page);
+  }
+}
+
 async function refreshAllLocationFaqStyles(slugs = null) {
   const pages = slugs
     ? LOCATION_PAGES.filter((p) => slugs.includes(p.slug))
@@ -459,6 +469,8 @@ module.exports = {
   removeAllLocationFaq,
   refreshLocationFaqStyles,
   refreshAllLocationFaqStyles,
+  upgradeLocationFaq,
+  upgradeAllLocationFaq,
   buildFaqHtml,
   buildFaqStyles,
   ensureFaqStyles,
@@ -469,12 +481,17 @@ module.exports = {
 if (require.main === module) {
   const remove = process.argv.includes('--remove');
   const stylesOnly = process.argv.includes('--styles-only');
-  const slugs = process.argv.slice(2).filter((arg) => arg && arg !== '--remove' && arg !== '--styles-only');
+  const upgrade = process.argv.includes('--upgrade');
+  const slugs = process.argv
+    .slice(2)
+    .filter((arg) => arg && arg !== '--remove' && arg !== '--styles-only' && arg !== '--upgrade');
   const task = remove
     ? removeAllLocationFaq(slugs.length ? slugs : null)
     : stylesOnly
       ? refreshAllLocationFaqStyles(slugs.length ? slugs : null)
-      : injectAllLocationFaq(slugs.length ? slugs : null);
+      : upgrade
+        ? upgradeAllLocationFaq(slugs.length ? slugs : null)
+        : injectAllLocationFaq(slugs.length ? slugs : null);
   task.catch((err) => {
     console.error(err.message);
     process.exit(1);

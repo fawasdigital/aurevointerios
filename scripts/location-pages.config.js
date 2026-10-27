@@ -11,16 +11,16 @@ const LOCATION_PAGES = [
   {
     slug: 'interior-designers-in-malappuram',
     city: 'Malappuram',
-    title: 'Interior Designers in Malappuram',
+    title: 'Interior design company | Interior Designers in Malappuram',
     meta:
-      'Looking for interior designers in Malappuram? Aurevo Interiors delivers premium home and commercial interior design across Malappuram district.',
+      'Aurevo Interiors is a leading interior design company in Malappuram with 6+ years of experience and 100+ completed projects. Transform your space with expert interior designers.',
   },
   {
     slug: 'interior-designers-in-kochi',
     city: 'Kochi',
-    title: 'Interior Designers in Kochi',
+    title: 'Interior Designers in Kochi, Ernakulam | Aurevo Interiors',
     meta:
-      'Looking for interior designers in Kochi? Aurevo Interiors offers bespoke interior design for homes and offices across Ernakulam and Kochi.',
+      'Aurevo Interiors offers expert home and office interiors in Kochi, Ernakulam, with 6+ years of experience and 100+ completed projects. Book a consultation today!',
   },
   {
     slug: 'interior-designers-in-kerala',
