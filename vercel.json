@@ -19,7 +19,9 @@
     { "source": "/portfolio/saleel", "destination": "/portfolio/jurisvox/", "permanent": true },
     { "source": "/portfolio/saleel/", "destination": "/portfolio/jurisvox/", "permanent": true },
     { "source": "/portfolio/fahad", "destination": "/portfolio/khubaib/", "permanent": true },
-    { "source": "/portfolio/fahad/", "destination": "/portfolio/khubaib/", "permanent": true }
+    { "source": "/portfolio/fahad/", "destination": "/portfolio/khubaib/", "permanent": true },
+    { "source": "/portfolio/ameen", "destination": "/portfolio/farhansrambiyan/", "permanent": true },
+    { "source": "/portfolio/ameen/", "destination": "/portfolio/farhansrambiyan/", "permanent": true }
   ],
   "rewrites": [
     { "source": "/about-us", "destination": "/about-us/index.html" },
