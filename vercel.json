@@ -15,7 +15,9 @@
     { "source": "/category/news", "destination": "/blog/", "permanent": true },
     { "source": "/category/news/", "destination": "/blog/", "permanent": true },
     { "source": "/category/insights", "destination": "/blog/", "permanent": true },
-    { "source": "/category/insights/", "destination": "/blog/", "permanent": true }
+    { "source": "/category/insights/", "destination": "/blog/", "permanent": true },
+    { "source": "/portfolio/saleel", "destination": "/portfolio/jurisvox/", "permanent": true },
+    { "source": "/portfolio/saleel/", "destination": "/portfolio/jurisvox/", "permanent": true }
   ],
   "rewrites": [
     { "source": "/about-us", "destination": "/about-us/index.html" },
