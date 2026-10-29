@@ -3,6 +3,7 @@
     src: url('TeXGyreAdventor-Italic.woff2') format('woff2'),
         url('TeXGyreAdventor-Italic.woff') format('woff');
     font-weight: normal;
+    font-display: swap;
     font-style: italic;
 }
 
@@ -11,6 +12,7 @@
     src: url('TeXGyreAdventor-Bold.woff2') format('woff2'),
         url('TeXGyreAdventor-Bold.woff') format('woff');
     font-weight: bold;
+    font-display: swap;
     font-style: normal;
 }
 
@@ -19,6 +21,7 @@
     src: url('TeXGyreAdventor-Regular.woff2') format('woff2'),
         url('TeXGyreAdventor-Regular.woff') format('woff');
     font-weight: normal;
+    font-display: swap;
     font-style: normal;
 }
 
@@ -27,6 +30,7 @@
     src: url('TeXGyreAdventor-BoldItalic.woff2') format('woff2'),
         url('TeXGyreAdventor-BoldItalic.woff') format('woff');
     font-weight: bold;
+    font-display: swap;
     font-style: italic;
 }
 
