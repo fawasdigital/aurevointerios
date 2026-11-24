@@ -1,12 +1,6 @@
 # https://aurevointeriors.com/robots.txt
-# https://aurevointeriors.com/robots.txt
 
 User-agent: *
 Allow: /
-
-# WordPress system paths (static mirror — not public pages)
-Disallow: /wp-admin/
-Disallow: /wp-includes/
-Disallow: /wp-json/
 
 Sitemap: https://aurevointeriors.com/sitemap.xml

@@ -4,6 +4,29 @@
   "outputDirectory": ".",
   "framework": null,
   "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/about-us", "destination": "/about-us/", "permanent": true },
+    { "source": "/services", "destination": "/services/", "permanent": true },
+    { "source": "/portfolio", "destination": "/portfolio/", "permanent": true },
+    { "source": "/blog", "destination": "/blog/", "permanent": true },
+    { "source": "/contact", "destination": "/contact/", "permanent": true },
+    { "source": "/author/farhan-kt", "destination": "/author/farhan-kt/", "permanent": true },
+    { "source": "/interior-designers-in-calicut", "destination": "/interior-designers-in-calicut/", "permanent": true },
+    { "source": "/interior-designers-in-malappuram", "destination": "/interior-designers-in-malappuram/", "permanent": true },
+    { "source": "/interior-designers-in-kochi", "destination": "/interior-designers-in-kochi/", "permanent": true },
+    { "source": "/interior-designers-in-kerala", "destination": "/interior-designers-in-kerala/", "permanent": true },
+    { "source": "/best-flooring-options-for-modern-homes", "destination": "/best-flooring-options-for-modern-homes/", "permanent": true },
+    { "source": "/office-interior-design-tips", "destination": "/office-interior-design-tips/", "permanent": true },
+    { "source": "/how-to-choose-the-perfect-color-palette", "destination": "/how-to-choose-the-perfect-color-palette/", "permanent": true },
+    { "source": "/portfolio/bedroom", "destination": "/portfolio/bedroom/", "permanent": true },
+    { "source": "/portfolio/kitchen", "destination": "/portfolio/kitchen/", "permanent": true },
+    { "source": "/portfolio/living-room", "destination": "/portfolio/living-room/", "permanent": true },
+    { "source": "/portfolio/office-spaces", "destination": "/portfolio/office-spaces/", "permanent": true },
+    { "source": "/portfolio/jurisvox", "destination": "/portfolio/jurisvox/", "permanent": true },
+    { "source": "/portfolio/khubaib", "destination": "/portfolio/khubaib/", "permanent": true },
+    { "source": "/portfolio/farhansrambiyan", "destination": "/portfolio/farhansrambiyan/", "permanent": true },
+    { "source": "/portfolio/hashif", "destination": "/portfolio/hashif/", "permanent": true },
+    { "source": "/portfolio/sajid", "destination": "/portfolio/sajid/", "permanent": true },
     { "source": "/calicut", "destination": "/interior-designers-in-calicut/", "permanent": true },
     { "source": "/calicut/", "destination": "/interior-designers-in-calicut/", "permanent": true },
     { "source": "/malappuram", "destination": "/interior-designers-in-malappuram/", "permanent": true },
@@ -23,18 +46,17 @@
     { "source": "/portfolio/ameen", "destination": "/portfolio/farhansrambiyan/", "permanent": true },
     { "source": "/portfolio/ameen/", "destination": "/portfolio/farhansrambiyan/", "permanent": true }
   ],
-  "rewrites": [
-    { "source": "/about-us", "destination": "/about-us/index.html" },
-    { "source": "/services", "destination": "/services/index.html" },
-    { "source": "/portfolio", "destination": "/portfolio/index.html" },
-    { "source": "/blog", "destination": "/blog/index.html" },
-    { "source": "/contact", "destination": "/contact/index.html" },
-    { "source": "/interior-designers-in-calicut", "destination": "/interior-designers-in-calicut/index.html" },
-    { "source": "/interior-designers-in-malappuram", "destination": "/interior-designers-in-malappuram/index.html" },
-    { "source": "/interior-designers-in-kochi", "destination": "/interior-designers-in-kochi/index.html" },
-    { "source": "/interior-designers-in-kerala", "destination": "/interior-designers-in-kerala/index.html" }
-  ],
   "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=600, must-revalidate" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+      ]
+    },
     {
       "source": "/wp-content/(.*)",
       "headers": [
@@ -51,12 +73,6 @@
       "source": "/hero/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
-    },
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=600, must-revalidate" }
       ]
     }
   ]
